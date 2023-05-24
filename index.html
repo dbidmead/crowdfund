@@ -125,21 +125,25 @@
   <!-- Selection modal start -->
   <div class="selection-modal-wrapper">
     <div class="selection-modal">
+      <button id="close-modal-btn">
+        <img src="./images/icon-close-menu.svg" alt="close">
+      </button>
       <h1>Back this project</h1>
       <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
       <div class="options-grid">
-        <div class="option-cell">
+        <div class="option-cell" id="null-option">
           <div class="custom-radio">
             <input type="radio" name="no-reward" id="no-reward">
             <div class="radio-button"></div>
           </div>
           <div class="text-body">
-            <h2>Pledge with no reward</h2>
+            <label for="no-reward"><h2>Pledge with no reward</h2></label>
+            
             <p>Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.</p>
           </div>
         </div>
   
-        <div class="option-cell selected">
+        <div class="option-cell" id="bamboo-option">
           <div class="custom-radio">
             <input type="radio" name="bamboo" id="bamboo">
             <div class="radio-button"></div>
@@ -147,7 +151,7 @@
           <div class="text-body">
             <div class="option-header">
               <div class="titles">
-                <h2>Bamboo Stand</h2>
+                <label for="bamboo"><h2>Bamboo Stand</h2></label>
                 <h3>Pledge $25 or more</h3>
               </div>
               <div class="qty-left-modal">
@@ -161,7 +165,10 @@
               <div class="selected-option-content">
                 <p>Enter your pledge</p>
                 <form action="#">
-                  <input type="number" name="bamboo-pledge-amount" id="bamboo-pledge-amount" placeholder="25">
+                  <div class="input-container">
+                    <div class="dollar-sign">$</div>
+                    <input type="number" name="bamboo-pledge-amount" id="bamboo-pledge-amount" placeholder="25">
+                  </div>
                   <button id="bamboo-pledge-submit-btn">Continue</button>
                 </form>
               </div>
@@ -169,7 +176,7 @@
           </div>
         </div>
   
-        <div class="option-cell">
+        <div class="option-cell" id="black-option">
           <div class="custom-radio">
             <input type="radio" name="black" id="black">
             <div class="radio-button"></div>
@@ -177,7 +184,7 @@
           <div class="text-body">
             <div class="option-header">
               <div class="titles">
-                <h2>Black Edition Stand</h2>
+                <label for="black"><h2>Black Edition Stand</h2></label>
                 <h3>Pledge $75 or more</h3>
               </div>
               <div class="qty-left-modal">
@@ -191,7 +198,10 @@
               <div class="selected-option-content">
                 <p>Enter your pledge</p>
                 <form action="#">
-                  <input type="number" name="black-pledge-amount" id="black-pledge-amount" placeholder="75">
+                  <div class="input-container">
+                    <div class="dollar-sign">$</div>
+                    <input type="number" name="black-pledge-amount" id="black-pledge-amount" placeholder="75">
+                  </div>
                   <button id="black-pledge-submit-btn">Continue</button>
                 </form>
               </div>
@@ -200,7 +210,7 @@
         </div>
   
   
-        <div class="option-cell">
+        <div class="option-cell oos" id="mahogany-option">
           <div class="custom-radio">
             <input type="radio" name="mahogany" id="mahogany">
             <div class="radio-button"></div>
@@ -208,7 +218,7 @@
           <div class="text-body">
             <div class="option-header">
               <div class="titles">
-                <h2>Mahogany Special Edition</h2>
+                <label for="mahogany"><h2>Mahogany Special Edition</h2></label>
                 <h3>Pledge $200 or more</h3>
               </div>
               <div class="qty-left-modal">
@@ -222,7 +232,10 @@
               <div class="selected-option-content">
                 <p>Enter your pledge</p>
                 <form action="#">
-                  <input type="number" name="mahogany-pledge-amount" id="mahogany-pledge-amount" placeholder="200">
+                  <div class="input-container">
+                    <div class="dollar-sign">$</div>
+                    <input type="number" name="mahogany-pledge-amount" id="mahogany-pledge-amount" placeholder="200">
+                  </div>
                   <button id="mahogany-pledge-submit-btn">Continue</button>
                 </form>
               </div>

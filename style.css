@@ -316,11 +316,29 @@ h3 {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    position: relative;
+}
+
+#close-modal-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    border: none;
+    background-color: transparent;
+    filter: invert();
+    opacity: 40%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#close-modal-btn:hover {
+    opacity: 1;
 }
 
 .options-grid {
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -331,6 +349,7 @@ h3 {
     align-items: flex-start;
     gap: 1.5rem;
     padding: 2rem 1.5rem;
+    transition: all 0.3s ease;
 }
 
 .custom-radio {
@@ -354,6 +373,7 @@ h3 {
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%) scale(150%);
+    pointer-events: none;
 }
 
 .radio-button {
@@ -400,8 +420,14 @@ h3 {
     gap: 0.5rem;
 }
 
-.titles>h2, .option-cell>div>h2 {
+.titles>label>h2, .option-cell>div>label>h2 {
     font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.titles>label>h2:hover, .option-cell>div>label>h2:hover {
+    color: var(--blue);
 }
 
 .option-cell>div>p {
@@ -416,12 +442,29 @@ hr {
 .selected-option {
     display: flex;
     flex-direction: column;
+    /* height: 0; */
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .selected-option-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+
+.dollar-sign {
+    position: absolute;
+    left: 0;
+    top: 0.3rem;
+    color: var(--grey);
+    font-weight: 500;
+}
+
+.input-container {
+    padding: 0 !important;
+    position: relative;
 }
 
 .selected-option-content>form {
@@ -451,19 +494,19 @@ hr {
 }
 
 
-.selected-option-content>form>input {
+.selected-option-content>form>div>input {
     width: 5rem;
     border: 1px solid rgba(165, 164, 164, 0.62);
     font-weight: 700;
     text-align: right;
 }
 
-.selected-option-content>form>input:focus {
+.selected-option-content>form>div>input:focus {
     outline-color: var(--blue);
 }
 
 .option-cell.selected {
-    border: 2px solid var(--blue);
+    border: 1px solid var(--blue);
 }
 
 
