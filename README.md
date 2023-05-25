@@ -35,7 +35,32 @@ Users should be able to:
 
 ## What I learned
 
+### When you have a modal, make an overlay div in the HTML and manipulate it in JS
+```html
+<body>
+    <div class="overlay"></div>
+</body>
+```
 
+```css
+.overlay {
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    background-color: rgba(24, 24, 24, 0.188);
+    display: none;
+}
+```
+The height will be set via JS.
+
+```js
+const overlay = document.querySelector('.overlay');
+overlay.style.height = getComputedStyle(document.body).height; // sets overlay height to entire body height
+
+// change values of overlay.style.zIndex/display to appropriate values when mobile menus or modals are activated
+```
+
+### In order to change SVG colors, use an online SVG editor and save as new image file
 
 ## Author
 
