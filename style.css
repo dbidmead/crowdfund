@@ -237,7 +237,10 @@ p {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    
+}
+
+.data-grid>div>hr {
+    display: none;
 }
 
 .money-cell, .backers-cell {
@@ -635,25 +638,14 @@ hr {
 }
 
 @media (max-width: 500px) {
-    .site-container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        gap: 2rem;
-    }
     
     .site-container>div {
         max-width: none;
-        padding: 1.75rem;
+        padding: 2.5rem 1.75rem;
     }
     
     .hero {
         padding: 0 !important;
-    
     }
     
     #bg-img-m {
@@ -700,66 +692,33 @@ hr {
     /* ------------------------------ */
     
     .header-panel {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        gap: 1.5rem;
-        margin-top: -10rem;
+        text-align: center;
+        margin-top: -12rem;
     }
-    
-    
-    #logo-mastercraft {
-        position: absolute;
-        top: 0;
-        transform: translateY(-50%);
-    }
-    
-    h1 {
-        font-size: 1.75rem;
-    }
-    
-    p {
-        color: var(--grey);
-        line-height: 1.75rem;
-    }
-    
+
     .header-buttons {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 1rem;
-    }
-    
-    .header-buttons>button {
-        padding: 1rem 3rem;
-        font-size: 1rem;
-        font-weight: 700;
-        border-radius: 1.5rem;
-        border: none;
-        color: var(--grey);
-        cursor: pointer;
-        transition: all 0.2s ease;
-        position: relative;
+        justify-content: center;
+        gap: 1rem;
+        margin: 0;
     }
     
     #back-proj-btn {
         background-color: var(--blue);
         color: white;
     }
-    
-    #bookmark-btn:before {
-        content: '' ;
-        background-image: url('./images/icon-bookmark.svg');
-        background-size: contain;
+
+    #bookmark-btn {
         width: 3.25rem;
         height: 3.25rem;
-        position: absolute;
-        left: 0;
+        background-color: transparent;
+        padding: 0 !important;
+        color: transparent;
+
+    }
+    
+    #bookmark-btn:before {
         top: 0;
-        transition: all 0.2s ease;
+        position: absolute;
     }
     
     #bookmark-btn:hover:before {
@@ -777,7 +736,7 @@ hr {
     }
     
     #bookmark-btn.bookmarked {
-        color: var(--dark-blue);
+        color: transparent;
     }
     
     #bookmark-btn.bookmarked:before {
@@ -787,46 +746,33 @@ hr {
     /* ------------------------------ */
     
     .info-display {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
+        gap: 1.5rem;
     }
     
     .data-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 2.5rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .data-grid>div {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        
+        align-items: center; 
+    }
+
+    .data-grid>div>hr {
+        display: block;
+        width: 33%;
+        margin: 0;
+        margin-top: 1.5rem;
     }
     
     .money-cell, .backers-cell {
-        border-right: 1px solid var(--grey);
-    }
-    
-    .progress-bar-container {
-        width: 100%;
-        height: 0.7rem;
-        background-color: rgb(242, 242, 242);
-        border-radius: 0.35rem;
-    }
-    
-    .progress-bar {
-        width: 0;
-        height: 0.7rem;
-        background-color: var(--blue);
-        border-radius: 0.35rem;
-        transition: all 1.5s ease-in-out;
+        border-right: none;
     }
     
     /* ------------------------------ */
     
-    .main-panel {
+    /* .main-panel {
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -846,26 +792,22 @@ hr {
         display: grid;
         grid-template-rows: repeat(3, 1fr);
         gap: 1.5rem;
-    }
+    } */
     
     .product {
-        border: 1px solid rgb(210, 210, 210);
-        border-radius: 8px;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+        justify-content: space-between;
+        padding: 1.5rem;
     }
     
     .product-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
     
     .product-foot {
-        display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        gap: 1.5rem;
     }
     
     .qty-left {
