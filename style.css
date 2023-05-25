@@ -87,6 +87,39 @@ body {
     z-index: 2;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    z-index: 100;
+}
+.bar {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 2rem;
+    height: 3px;
+    background-color: white;
+    transition: all 400ms cubic-bezier(.84,.06,.52,1.8);
+}
+#a {
+    transform: translateY(-0.5rem);
+}
+#c {
+    transform: translateY(0.5rem);
+}
+.active>#a {
+    transform: rotate(45deg);
+}
+.active>#b {
+    opacity: 0;
+}
+.active>#c {
+    transform: rotate(-45deg);
+}
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -599,4 +632,570 @@ hr {
 
 .attribution a:hover {
     color: var(--dark-blue);
+}
+
+@media (max-width: 500px) {
+    .site-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 2rem;
+    }
+    
+    .site-container>div {
+        max-width: none;
+        padding: 1.75rem;
+    }
+    
+    .hero {
+        padding: 0 !important;
+    
+    }
+    
+    #bg-img-m {
+        display: block;
+    }
+
+    #bg-img-d {
+        display: none;
+    }
+    
+    .navbar {
+        padding: 2rem 1.5rem;
+        height: auto;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        gap: 0;
+        align-items: flex-start;
+        background-color: white;
+        border-radius: 8px;
+        width: 90%;
+        left: 50%;
+        top: 5rem;
+        transform: translateX(-50%);
+        transition: all 0.3s ease;
+        opacity: 0;
+        overflow: hidden;
+    }
+    
+    .nav-links a {
+        font-size: 1rem;
+        color: black;
+        width: 100%;
+        border-bottom: 1px solid rgb(242, 242, 242);
+        padding: 1.5rem;
+    }
+    
+    /* ------------------------------ */
+    
+    .header-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 1.5rem;
+        margin-top: -10rem;
+    }
+    
+    
+    #logo-mastercraft {
+        position: absolute;
+        top: 0;
+        transform: translateY(-50%);
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    p {
+        color: var(--grey);
+        line-height: 1.75rem;
+    }
+    
+    .header-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .header-buttons>button {
+        padding: 1rem 3rem;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 1.5rem;
+        border: none;
+        color: var(--grey);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+    
+    #back-proj-btn {
+        background-color: var(--blue);
+        color: white;
+    }
+    
+    #bookmark-btn:before {
+        content: '' ;
+        background-image: url('./images/icon-bookmark.svg');
+        background-size: contain;
+        width: 3.25rem;
+        height: 3.25rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: all 0.2s ease;
+    }
+    
+    #bookmark-btn:hover:before {
+        opacity: 60%;
+    }
+    
+    #bookmark-btn {
+        padding-right: 1.5rem;
+        padding-left: 4rem;
+        background-color: rgb(242, 242, 242);
+    }
+    
+    #back-proj-btn:hover {
+        background-color: var(--dark-blue);
+    }
+    
+    #bookmark-btn.bookmarked {
+        color: var(--dark-blue);
+    }
+    
+    #bookmark-btn.bookmarked:before {
+        background-image: url('./images/icon-bookmarked.svg');
+    }
+    
+    /* ------------------------------ */
+    
+    .info-display {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .data-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2.5rem;
+    }
+    
+    .data-grid>div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        
+    }
+    
+    .money-cell, .backers-cell {
+        border-right: 1px solid var(--grey);
+    }
+    
+    .progress-bar-container {
+        width: 100%;
+        height: 0.7rem;
+        background-color: rgb(242, 242, 242);
+        border-radius: 0.35rem;
+    }
+    
+    .progress-bar {
+        width: 0;
+        height: 0.7rem;
+        background-color: var(--blue);
+        border-radius: 0.35rem;
+        transition: all 1.5s ease-in-out;
+    }
+    
+    /* ------------------------------ */
+    
+    .main-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    h3 {
+        color: var(--blue);
+        font-weight: 400;
+        font-size: 1rem;
+    }
+    
+    .product-grid {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .product {
+        border: 1px solid rgb(210, 210, 210);
+        border-radius: 8px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .product-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .product-foot {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .qty-left {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .product-foot>button {
+        padding: 1rem 2rem;
+        border-radius: 1.5rem;
+        border: none;    
+        color: white;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+    
+    .reward-btn {
+        background-color: var(--blue);
+    }
+    
+    .reward-btn:hover {
+        cursor: pointer;
+        background-color: var(--dark-blue);
+    }
+    
+    .oos-btn {
+        background-color: var(--grey);
+    }
+    
+    .oos {
+        opacity: 50%;
+        pointer-events: none;
+    }
+    /* ------------------------------ */
+    
+    .selection-modal-wrapper {
+        background-color: transparent;
+        z-index: 4;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        padding: 10% 20%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .selection-modal {
+        background-color: white;
+        max-width: 740px;
+        width: 100%;
+        padding: 3rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        position: relative;
+    }
+    
+    #close-modal-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        border: none;
+        background-color: transparent;
+        filter: invert();
+        opacity: 40%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    #close-modal-btn:hover {
+        opacity: 1;
+    }
+    
+    .options-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .option-cell {
+        border: 1px solid rgb(215, 213, 213);
+        border-radius: 8px;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 2rem 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .custom-radio {
+        display: flex;
+        border-radius: 50%;
+        border: 1px solid rgb(215, 213, 213);
+        width: 1.75rem;
+        height: 1.75rem;
+        position: absolute;
+        transform: translateY(12%);
+    }
+    
+    .custom-radio:hover {
+        cursor: pointer;
+    }
+    
+    .custom-radio>input {
+        opacity: 0;
+        cursor: pointer;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%) scale(150%);
+        pointer-events: none;
+    }
+    
+    .radio-button {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+    
+    .custom-radio>input:checked ~ .radio-button:after {
+        content: '';
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        background-color: var(--blue);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        transition: all 0.2s ease;
+    }
+    
+    .text-body {
+        padding: 0 0 0 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .option-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .titles {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .qty-left-modal {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .titles>label>h2, .option-cell>div>label>h2 {
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .titles>label>h2:hover, .option-cell>div>label>h2:hover {
+        color: var(--blue);
+    }
+    
+    .option-cell>div>p {
+        font-size: 0.9rem;
+    }
+    
+    hr {
+        margin: 0 0 1.5rem 0;
+        border-color: rgba(215, 213, 213, 0.272);
+    }
+    
+    .selected-option {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .selected-option-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        transition: all 0.2s ease;
+    }
+    
+    .dollar-sign {
+        position: absolute;
+        left: 0;
+        top: 0.3rem;
+        color: var(--grey);
+        font-weight: 500;
+    }
+    
+    .input-container {
+        padding: 0 !important;
+        position: relative;
+    }
+    
+    .selected-option-content>form {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .selected-option-content>form * {
+        padding: 0.5rem 1rem;
+        height: 2.5rem;
+        border-radius: 1.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .selected-option-content>form>button {
+        border: none;
+        background-color: var(--blue);
+        color: white;
+        transition: all 0.2s ease;
+    }
+    
+    .selected-option-content>form>button:hover {
+        cursor: pointer;
+        background-color: var(--dark-blue);
+    }
+    
+    
+    .selected-option-content>form>div>input {
+        width: 5rem;
+        border: 1px solid rgba(165, 164, 164, 0.62);
+        font-weight: 700;
+        text-align: right;
+    }
+    
+    .invalid {
+        border-color: red !important;
+    }
+    
+    .selected-option-content>form>div>input:focus {
+        outline-color: var(--blue);
+    }
+    
+    .option-cell.selected {
+        border: 1px solid var(--blue);
+    }
+    
+    
+    /* ------------------------------ */
+    
+    .success-modal-wrapper {
+        background-color: transparent;
+        z-index: 4;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 10% 20%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .success-modal {
+        background-color: white;
+        width: 70%;
+        padding: 3rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    #check {
+        height: 5rem;
+        width: 5rem;
+    }
+    
+    .success-modal>p {
+        font-size: 0.9rem;
+    }
+    
+    #got-it-btn {
+        background-color: var(--blue);
+        padding: 1rem 2rem;
+        border-radius: 1.5rem;
+        border: none;
+        color: white;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        margin-top: 0.5rem;
+    }
+    
+    #got-it-btn:hover {
+        cursor: pointer;
+        background-color: var(--dark-blue);
+    }
+    
+    /* ------------------------------ */
+    
+    .attribution { 
+        font-size: 12px; 
+        text-align: center; 
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 0 !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+    
+    .attribution a { 
+        color: var(--blue); 
+        font-size: inherit;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.2s ease;
+    }
+    
+    .attribution a:hover {
+        color: var(--dark-blue);
+    }
 }

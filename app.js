@@ -56,8 +56,6 @@ let modalInitialized = false;
 function showModal() {
     modal.setAttribute('style', 'display:flex');
     if(!modalInitialized) initModal();
-    // document.body.style.height = modal.modalHeight;
-    // document.body.style.overflow = 'hidden';
     overlay.style.display = 'block';
 }
 
@@ -204,3 +202,26 @@ mahoganyRewardBtn.addEventListener('click', () => {
     showModal();
     setRadioBtn(mahoganyModalOption.radioButton);
 });
+
+
+// ---------------HANDLE MOBILE---------------
+
+const navLinks = document.querySelector('.nav-links');
+navLinks.elHeight = getComputedStyle(navLinks).height;
+navLinks.style.height = '0px';
+
+const hamburger = document.querySelector('.hamburger');
+    hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    if(hamburger.classList.contains('active')) {
+        navLinks.style.height = navLinks.elHeight;
+        navLinks.style.opacity = '1';
+        overlay.style.display = 'flex';
+        overlay.style.zIndex = '2'
+    } else {
+        navLinks.style.height = '0px';
+        navLinks.style.opacity = '0';
+        overlay.style.zIndex = '3';
+        overlay.style.display = 'none';
+    }
+})
