@@ -6,8 +6,16 @@ bookmarkBtn.addEventListener('click', () => {
     bookmarkBtn.classList.toggle('bookmarked');
 })
 
+// ---------------HANDLE SUCCESS MODAL---------------
 
-// ---------------HANDLE MODAL---------------
+const successModal = document.querySelector('.success-modal-wrapper');
+const gotItBtn = document.querySelector('#got-it-btn');
+
+gotItBtn.addEventListener('click', () => {
+    successModal.setAttribute('style', 'display:none')
+})
+
+// ---------------HANDLE MAIN MODAL---------------
 
 const modal = document.querySelector('.selection-modal-wrapper');
 let modalInitialized = false;
@@ -17,14 +25,17 @@ function showModal() {
     if(!modalInitialized) initModal();
 }
 
+function closeModal() {
+    modal.setAttribute('style', 'display:none');
+    resetModal();
+}
+
 const backProjBtn = document.querySelector('#back-proj-btn');
 backProjBtn.addEventListener('click', showModal);
 
 const closeModalBtn = document.querySelector('#close-modal-btn');
-closeModalBtn.addEventListener('click', () => {
-    modal.setAttribute('style', 'display:none');
-    resetModal();
-})
+closeModalBtn.addEventListener('click', closeModal)
+
 
 const nullModalOption = document.querySelector('#null-option');
 const bambooModalOption = document.querySelector('#bamboo-option');
@@ -60,7 +71,7 @@ function initModal() {
         }
     })
     modalInitialized = true;
-}
+};
 
 function resetModal() {
     modalOptions.forEach(option => {
@@ -70,7 +81,7 @@ function resetModal() {
             option.selectedContent.style.height = '0px'
         }
     })
-}
+};
 
 function setRadioBtn(selectedRadioButton) {
     modalOptions.forEach(option => {
@@ -85,13 +96,13 @@ function setRadioBtn(selectedRadioButton) {
         }
     })
     selectedRadioButton.checked = true;
-}
+};
 
 function handleRadioButton(e) {
     resetModal();
     let selectedRadioButton = e.target.parentElement.firstElementChild;
     setRadioBtn(selectedRadioButton);
-}
+};
 
 const handleContinue = (e) => {
     e.preventDefault();
@@ -99,19 +110,20 @@ const handleContinue = (e) => {
     if(isInputValid(option)) {
         option.pledgeInput.classList.remove('invalid')
         console.log(option.pledgeInput.value)
-        //continue to success modal
+        successModal.setAttribute('style', 'display:flex');
+        closeModal();
     } else {
         console.log('cheapo')
         option.pledgeInput.classList.add('invalid')
     }
-}
+};
 
 const isInputValid = (option) => {
     if(option.pledgeInput.value >= option.inputMin) {
         return true;
     }
     return false;
-}
+};
 
 
 // ---------------HANDLE SELECT REWARD BUTTONS---------------
@@ -132,4 +144,4 @@ const mahoganyRewardBtn = document.querySelector('#mahogany-reward-btn');
 mahoganyRewardBtn.addEventListener('click', () => {
     showModal();
     setRadioBtn(mahoganyModalOption.radioButton);
-})
+});
