@@ -302,7 +302,7 @@ h3 {
     top: 0;
     width: 100%;
     padding: 10% 20%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -442,7 +442,6 @@ hr {
 .selected-option {
     display: flex;
     flex-direction: column;
-    /* height: 0; */
     overflow: hidden;
     transition: all 0.3s ease;
 }
@@ -452,6 +451,7 @@ hr {
     align-items: center;
     justify-content: space-between;
     position: relative;
+    transition: all 0.2s ease;
 }
 
 .dollar-sign {
@@ -499,6 +499,10 @@ hr {
     border: 1px solid rgba(165, 164, 164, 0.62);
     font-weight: 700;
     text-align: right;
+}
+
+.invalid {
+    border-color: red !important;
 }
 
 .selected-option-content>form>div>input:focus {
