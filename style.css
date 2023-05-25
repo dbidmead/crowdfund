@@ -25,6 +25,14 @@ body {
     background-color: rgb(250, 250, 250);
 }
 
+.overlay {
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    background-color: rgba(24, 24, 24, 0.188);
+    display: none;
+}
+
 .site-container {
     width: 100%;
     height: 100%;
@@ -297,7 +305,7 @@ h3 {
 /* ------------------------------ */
 
 .selection-modal-wrapper {
-    background-color: rgba(24, 24, 24, 0.188);
+    background-color: transparent;
     z-index: 4;
     position: absolute;
     top: 0;
@@ -518,7 +526,7 @@ hr {
 /* ------------------------------ */
 
 .success-modal-wrapper {
-    background-color: rgba(24, 24, 24, 0.188);
+    background-color: transparent;
     z-index: 4;
     position: absolute;
     top: 0;
@@ -572,9 +580,13 @@ hr {
 /* ------------------------------ */
 
 .attribution { 
-    font-size: 11px; 
+    font-size: 12px; 
     text-align: center; 
     width: 100%;
+    margin-bottom: 2rem;
+    padding: 0 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 .attribution a { 

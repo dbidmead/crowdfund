@@ -38,11 +38,14 @@ bookmarkBtn.addEventListener('click', () => {
 
 // ---------------HANDLE SUCCESS MODAL---------------
 
+const overlay = document.querySelector('.overlay');
+overlay.style.height = getComputedStyle(document.body).height;
 const successModal = document.querySelector('.success-modal-wrapper');
 const gotItBtn = document.querySelector('#got-it-btn');
 
 gotItBtn.addEventListener('click', () => {
-    successModal.setAttribute('style', 'display:none')
+    successModal.setAttribute('style', 'display:none');
+    overlay.style.display = 'none';
 })
 
 // ---------------HANDLE MAIN MODAL---------------
@@ -53,11 +56,15 @@ let modalInitialized = false;
 function showModal() {
     modal.setAttribute('style', 'display:flex');
     if(!modalInitialized) initModal();
+    // document.body.style.height = modal.modalHeight;
+    // document.body.style.overflow = 'hidden';
+    overlay.style.display = 'block';
 }
 
 function closeModal() {
     modal.setAttribute('style', 'display:none');
     resetModal();
+    overlay.style.display = 'none';
 }
 
 const backProjBtn = document.querySelector('#back-proj-btn');
@@ -83,6 +90,7 @@ const modalOptions = [
 ];
 
 function initModal() {
+    modal.modalHeight = getComputedStyle(modal).height;
     modalOptions.forEach((option, i) => {
         // initialize radio buttons
         option.radioButton = option.firstElementChild.firstElementChild
@@ -147,6 +155,7 @@ const handleContinue = (e) => {
         successModal.setAttribute('style', 'display:flex');
         closeModal();
         updateData(option.pledgeInput.value);
+        overlay.style.display = 'block';
     } else {
         console.log('cheapo')
         option.pledgeInput.classList.add('invalid')
