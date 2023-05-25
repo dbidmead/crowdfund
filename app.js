@@ -100,7 +100,7 @@ function initModal() {
         // initialize selected option styles and inputs
         if(i > 0) {
             option.selectedContent = option.lastElementChild.lastElementChild;
-            option.selectedContentHeight = getComputedStyle(option.selectedContent).height;
+            option.selectedContentHeight = parseFloat(getComputedStyle(option.selectedContent).height) + 5;
             option.selectedContent.style.height = '0px'
     
             option.pledgeInput = option.selectedContent.lastElementChild.lastElementChild.firstElementChild.lastElementChild;
@@ -126,7 +126,7 @@ function setRadioBtn(selectedRadioButton) {
         if(option.radioButton === selectedRadioButton) {
             option.classList.add('selected');
             if(option.selectedContent) {
-                option.selectedContent.style.height = option.selectedContentHeight;
+                option.selectedContent.style.height = option.selectedContentHeight.toString() + 'px';
                 option.pledgeInput.focus();
                 option.pledgeInput.value = option.inputMin;
                 option.continueBtn.addEventListener('click', handleContinue)
