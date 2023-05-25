@@ -211,10 +211,11 @@ p {
 }
 
 .progress-bar {
-    width: 80%;
+    width: 0;
     height: 0.7rem;
     background-color: var(--blue);
     border-radius: 0.35rem;
+    transition: all 1.5s ease-in-out;
 }
 
 /* ------------------------------ */

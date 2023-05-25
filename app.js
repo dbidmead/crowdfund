@@ -1,3 +1,33 @@
+// ---------------HANDLE PLEDGE DATA---------------
+
+const currentMoneyDisplay = document.querySelector('#current-money-display');
+const currentBackersDisplay = document.querySelector('#current-backers-display');
+const progressBar = document.querySelector('.progress-bar');
+
+let goalFunds = 100000;
+let currentFunds = 45982;
+let currentBackers = 2804;
+
+function setProgressBar() {
+    let percent = 100 * currentFunds / goalFunds;
+    progressBar.style.width = percent <= 100 ? percent.toString() + '%' : '100%';
+}
+
+function setDisplays() {
+    currentMoneyDisplay.textContent = '$' + currentFunds.toLocaleString("en-US");
+    currentBackersDisplay.textContent = currentBackers.toLocaleString("en-US");
+    setProgressBar();
+}
+
+function updateData(inputValue) {
+    inputValue = parseFloat(inputValue);
+    currentFunds = currentFunds+inputValue;
+    currentBackers++;
+    setDisplays();
+}
+
+setDisplays();
+
 // ---------------HANDLE BOOKMARK BUTTON---------------
 
 const bookmarkBtn = document.querySelector('#bookmark-btn');
@@ -108,10 +138,15 @@ const handleContinue = (e) => {
     e.preventDefault();
     let option = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
     if(isInputValid(option)) {
-        option.pledgeInput.classList.remove('invalid')
-        console.log(option.pledgeInput.value)
+        option.pledgeInput.classList.remove('invalid');
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        });
         successModal.setAttribute('style', 'display:flex');
         closeModal();
+        updateData(option.pledgeInput.value);
     } else {
         console.log('cheapo')
         option.pledgeInput.classList.add('invalid')
@@ -130,18 +165,33 @@ const isInputValid = (option) => {
 
 const bambooRewardBtn = document.querySelector('#bamboo-reward-btn');
 bambooRewardBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    });
     showModal();
     setRadioBtn(bambooModalOption.radioButton);
 });
 
 const blackRewardBtn = document.querySelector('#black-reward-btn');
 blackRewardBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    });
     showModal();
     setRadioBtn(blackModalOption.radioButton);
 });
 
 const mahoganyRewardBtn = document.querySelector('#mahogany-reward-btn');
 mahoganyRewardBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    });
     showModal();
     setRadioBtn(mahoganyModalOption.radioButton);
 });
